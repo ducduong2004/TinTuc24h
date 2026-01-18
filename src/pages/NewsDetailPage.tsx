@@ -51,11 +51,13 @@ const NewsDetailPage: React.FC = () => {
     lineHeight: 1.6,
   });
 
+const API_BASE = "https://minhqnd.com";
+
 const lookupWord = async (word: string) => {
   try {
     setLoadingMeaning(true);
     setMeanings([]);
-    const url = `/api/dictionary/lookup?word=${word}`;
+    const url = `${API_BASE}/api/dictionary/lookup?word=${encodeURIComponent(word)}`;
 
     const res = await fetch(url);
 
