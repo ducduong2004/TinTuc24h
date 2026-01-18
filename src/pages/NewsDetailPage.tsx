@@ -57,9 +57,12 @@ const lookupWord = async (word: string) => {
   try {
     setLoadingMeaning(true);
     setMeanings([]);
-    const url = `${API_BASE}/api/dictionary/lookup?word=${encodeURIComponent(word)}`;
+    const url = `https://dict.minhqnd.com/api/v1/lookup?word=${encodeURIComponent(word)}`;
 
-    const res = await fetch(url);
+    const res = await fetch(url).then(res => res.json()).then(data => {
+      console.log(data);
+      console.log(`Từ: ${data.word}`);
+    });
 
     if (res.status === 404) {
       setMeanings([
