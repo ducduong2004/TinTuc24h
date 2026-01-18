@@ -64,36 +64,36 @@ const lookupWord = async (word: string) => {
       console.log(`Từ: ${data.word}`);
     });
 
-    if (res.status === 404) {
-      setMeanings([
-        {
-          pos: "_",
-          definition: "Không tìm thấy ý nghĩa của từ này",
-          source: ""
-        }
-      ])
-      return;
-    }
+    // if (res.status === 404) {
+    //   setMeanings([
+    //     {
+    //       pos: "_",
+    //       definition: "Không tìm thấy ý nghĩa của từ này",
+    //       source: ""
+    //     }
+    //   ])
+    //   return;
+    // }
 
-    if(!res.ok) return;
+    // if(!res.ok) return;
 
-    const data = await res.json();
+    // const data = await res.json();
 
-    console.log(data)
+    // console.log(data)
 
-    if(data.exists) {
-      const result = data.results[0]
-      setMeanings(result.meanings)
+    // if(data.exists) {
+    //   const result = data.results[0]
+    //   setMeanings(result.meanings)
       
-    } else {
-      setMeanings([
-        {
-          pos: "_",
-          definition: "Khong tim thay nghia",
-          source: "Dictionnary"
-        }
-      ])
-    }
+    // } else {
+    //   setMeanings([
+    //     {
+    //       pos: "_",
+    //       definition: "Khong tim thay nghia",
+    //       source: "Dictionnary"
+    //     }
+    //   ])
+    // }
 
   } catch (err) {
     console.error(err);
