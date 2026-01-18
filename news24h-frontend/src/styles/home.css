@@ -1,0 +1,33 @@
+/* Home page custom styling */
+
+.section-title {
+	position: relative;
+	font-weight: 800;
+	color: #1f2937;
+	padding-left: 12px;
+}
+
+.section-title::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 6px;
+	height: 22px;
+	background: linear-gradient(180deg, #e11d48 0%, #f97316 100%);
+	transform: translateY(-50%);
+	border-radius: 999px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.ticker-rail {
+	mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
