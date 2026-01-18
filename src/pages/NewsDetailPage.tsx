@@ -61,39 +61,26 @@ const lookupWord = async (word: string) => {
 
     const res = await fetch(url).then(res => res.json()).then(data => {
       console.log(data);
-      console.log(`Từ: ${data.word}`);
+      
+      if(data.exists) {
+        // lay y nghia dau tien
+        const result = data.results[0]
+        setMeanings(result.meanings)
+        
+      } else {
+        setMeanings([
+          {
+            pos: "_",
+            definition: "Khong tim thay nghia",
+            source: "Dictionnary"
+          }
+        ])
+      }
+
+
     });
 
-    // if (res.status === 404) {
-    //   setMeanings([
-    //     {
-    //       pos: "_",
-    //       definition: "Không tìm thấy ý nghĩa của từ này",
-    //       source: ""
-    //     }
-    //   ])
-    //   return;
-    // }
 
-    // if(!res.ok) return;
-
-    // const data = await res.json();
-
-    // console.log(data)
-
-    // if(data.exists) {
-    //   const result = data.results[0]
-    //   setMeanings(result.meanings)
-      
-    // } else {
-    //   setMeanings([
-    //     {
-    //       pos: "_",
-    //       definition: "Khong tim thay nghia",
-    //       source: "Dictionnary"
-    //     }
-    //   ])
-    // }
 
   } catch (err) {
     console.error(err);
